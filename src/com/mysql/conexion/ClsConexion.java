@@ -9,7 +9,7 @@ public class ClsConexion {
 
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String USER = "root";
-    private static final String PASSWORD = "Lucy4321";
+    private static final String PASSWORD = "Daniel12";
     private static final String URL = "jdbc:mysql://localhost:3306/proyectoaeropuertoiii?autoReconnect=true&use=false";
     private Connection CN;
 
