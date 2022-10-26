@@ -4,15 +4,21 @@
  */
 package com.jframe.grafico;
 
+import com.mysql.conexion.ClsConexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author hetzo
  */
 public class Privado extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Privado
-     */
+    ClsConexion con = new ClsConexion();
+    Connection cn = con.getConnection();
+
     public Privado() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -33,14 +39,14 @@ public class Privado extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtPasaporte = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtNacionalidad = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,23 +109,23 @@ public class Privado extends javax.swing.JFrame {
 
         jLabel5.setText("Cual es su nombre");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtNombreActionPerformed(evt);
             }
         });
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtPasaporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtPasaporteActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Escribenos tu Pasaporte");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtNacionalidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtNacionalidadActionPerformed(evt);
             }
         });
 
@@ -143,14 +149,14 @@ public class Privado extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPasaporte, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                         .addComponent(jButton2)
                         .addGap(69, 69, 69))))
@@ -162,24 +168,24 @@ public class Privado extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPasaporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(78, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 0, 51));
-        jLabel8.setText("DanielSA 2022-....");
+        jLabel9.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(204, 0, 51));
+        jLabel9.setText("DanielSA 2022-2022");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -187,15 +193,15 @@ public class Privado extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(182, 182, 182))
+                .addComponent(jLabel9)
+                .addGap(156, 156, 156))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -214,7 +220,7 @@ public class Privado extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -232,28 +238,40 @@ public class Privado extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtPasaporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasaporteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtPasaporteActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNacionalidadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtNacionalidadActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        FrmAnuncio anuncio = new FrmAnuncio();
-        anuncio.setVisible(true);
-        this.dispose();
+        try {
+            PreparedStatement ps = cn.prepareStatement("INSERT INTO pasajero (nombre,pasaporte,nacionalidad) VALUES(?,?,?)");
+            ps.setString(1, txtNombre.getText());
+            ps.setString(2, txtPasaporte.getText());
+            ps.setString(3, txtNacionalidad.getText());
+
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "DATOS GUARDADOS!...");
+            FrmAnuncio anuncio = new FrmAnuncio();
+            anuncio.setVisible(true);
+            this.dispose();
+        } catch (SQLException e) {
+            System.out.println("ERROR AL GUARDAR LOS DATOS " + e);
+        }
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
@@ -263,12 +281,12 @@ public class Privado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txtNacionalidad;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtPasaporte;
     // End of variables declaration//GEN-END:variables
 }

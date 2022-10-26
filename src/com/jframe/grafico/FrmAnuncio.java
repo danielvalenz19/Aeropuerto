@@ -66,18 +66,18 @@ public class FrmAnuncio extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 0, 51));
-        jLabel5.setText("DanielSA 2022-....");
+        jLabel5.setText("DanielSA 2022-2022");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(163, 163, 163)
                 .addComponent(jLabel5)
-                .addGap(220, 220, 220))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
