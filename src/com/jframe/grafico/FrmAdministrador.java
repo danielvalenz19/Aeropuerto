@@ -64,6 +64,8 @@ public class FrmAdministrador extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         txfPatrocinio = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        comboPatrocinios = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaDatos = new javax.swing.JTable();
@@ -84,6 +86,11 @@ public class FrmAdministrador extends javax.swing.JFrame {
         jPopupMenu1.add(jMenuItem1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setForeground(new java.awt.Color(255, 153, 153));
@@ -156,6 +163,11 @@ public class FrmAdministrador extends javax.swing.JFrame {
         jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton6.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pasajeros animado.png"))); // NOI18N
         jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         txfId.setEnabled(false);
 
@@ -198,7 +210,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
             }
         });
 
-        combosector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Privado", "Publico", " " }));
+        combosector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Privado", "Publico" }));
         combosector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combosectorActionPerformed(evt);
@@ -208,6 +220,10 @@ public class FrmAdministrador extends javax.swing.JFrame {
         jLabel12.setText("Sector");
 
         jLabel13.setText("Patrocinio");
+
+        comboPatrocinios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Coca Cola", "Mac", "Pepsi", "Gayo", "UMG ", " " }));
+
+        jLabel8.setText("Compañias patrocinadoras");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -242,9 +258,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
                             .addComponent(jLabel10)
                             .addComponent(txfId, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(comboCompania, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
@@ -252,8 +266,20 @@ public class FrmAdministrador extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
-                            .addComponent(txfPatrocinio, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                            .addComponent(txfPatrocinio, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(comboCompania, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(comboPatrocinios, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel8)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton6)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -289,26 +315,37 @@ public class FrmAdministrador extends javax.swing.JFrame {
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txfPatrocinio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txfCiudadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabel10)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txfId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txfNumeroMaximo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txfCiudadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txfId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txfNumeroMaximo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel11))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboCompania, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(comboCompania, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(comboPatrocinios))))
                 .addGap(9, 9, 9))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
@@ -418,10 +455,11 @@ public class FrmAdministrador extends javax.swing.JFrame {
         modelo.addColumn("sector");
         modelo.addColumn("compania");
         modelo.addColumn("patrocinio");
+        modelo.addColumn("empresaPatrocinadora");
 
         TablaDatos.setModel(modelo);
         String consultasql = "select*from vuelo";
-        String data[] = new String[9];
+        String data[] = new String[10];
         Statement st;
 
         try {
@@ -437,6 +475,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
                 data[6] = rs.getString(7);
                 data[7] = rs.getString(8);
                 data[8] = rs.getString(9);
+                data[9] = rs.getString(10);
 
                 modelo.addRow(data);
             }
@@ -448,7 +487,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         try {
-            PreparedStatement ps = cn.prepareStatement("INSERT INTO vuelo (ciudadOrigen,ciudadDestino,precio,numeroMaxPasajero,numeroActualPasajero,sector,compania,patrocinio) VALUES(?,?,?,?,?,?,?,?)");
+            PreparedStatement ps = cn.prepareStatement("INSERT INTO vuelo (ciudadOrigen,ciudadDestino,precio,numeroMaxPasajero,numeroActualPasajero,sector,compania,patrocinio,empresaPatrocinadora) VALUES(?,?,?,?,?,?,?,?,?)");
             ps.setString(1, txfCiudadDestino.getText());
             ps.setString(2, txfCiudadOrigen.getText());
             ps.setString(3, txfPrecio.getText());
@@ -457,6 +496,8 @@ public class FrmAdministrador extends javax.swing.JFrame {
             ps.setString(6, combosector.getSelectedItem().toString());
             ps.setString(7, comboCompania.getSelectedItem().toString());
             ps.setString(8, txfPatrocinio.getText());
+            ps.setString(9, comboPatrocinios.getSelectedItem().toString());
+
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "DATOS GUARDADOS!...");
             mostrarDatos();
@@ -480,6 +521,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
         this.combosector.setSelectedItem(this.TablaDatos.getValueAt(fila, 6));
         this.comboCompania.setSelectedItem(this.TablaDatos.getValueAt(fila, 7).toString());
         this.txfPatrocinio.setText(this.TablaDatos.getValueAt(fila, 8).toString());
+        this.comboPatrocinios.setSelectedItem(this.TablaDatos.getValueAt(fila, 9).toString());
 
     }//GEN-LAST:event_TablaDatosMouseClicked
 
@@ -493,7 +535,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         try {
-            PreparedStatement ps = cn.prepareStatement("Update vuelo set ciudadOrigen='" + txfCiudadOrigen.getText() + "', ciudadDestino='" + txfCiudadDestino.getText() + "',precio='" + txfPrecio.getText() + "',numeroMaxPasajero='" + txfNumeroMaximo.getText() + "',numeroActualPasajero='" + txfNumeroActual.getText() + "',sector='" + combosector.getSelectedItem() + "', compania='" + comboCompania.getSelectedItem() + "',patrocinio='" + txfPatrocinio.getText() + "' where idVuelo='" + txfId.getText() + "'");
+            PreparedStatement ps = cn.prepareStatement("Update vuelo set ciudadOrigen='" + txfCiudadOrigen.getText() + "', ciudadDestino='" + txfCiudadDestino.getText() + "',precio='" + txfPrecio.getText() + "',numeroMaxPasajero='" + txfNumeroMaximo.getText() + "',numeroActualPasajero='" + txfNumeroActual.getText() + "',sector='" + combosector.getSelectedItem() + "', compania='" + comboCompania.getSelectedItem() + "',patrocinio='" + txfPatrocinio.getText() + "',empresaPatrocinadora='" + comboPatrocinios.getSelectedItem() + "' where idVuelo='" + txfId.getText() + "'");
             int indice = ps.executeUpdate();
 
             if (indice > 0) {
@@ -510,9 +552,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
-        btnActualizar.setEnabled(false);
-        btnRegistrar.setEnabled(true);
-        limpiar();
+
     }//GEN-LAST:event_jPanel3MouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -534,6 +574,17 @@ public class FrmAdministrador extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        btnActualizar.setEnabled(false);
+        btnRegistrar.setEnabled(true);
+        limpiar();    }//GEN-LAST:event_formMouseClicked
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        FrmPasajeros frmPasajeros = new FrmPasajeros();
+        frmPasajeros.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     public void limpiar() {
         txfId.setText("");
         txfCiudadDestino.setText("");
@@ -544,6 +595,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
         combosector.setSelectedIndex(0);
         comboCompania.setSelectedIndex(0);
         txfPatrocinio.setText("");
+        comboPatrocinios.setSelectedIndex(0);
 
     }
 
@@ -556,6 +608,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JComboBox<String> comboCompania;
+    private javax.swing.JComboBox<String> comboPatrocinios;
     private javax.swing.JComboBox<String> combosector;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -571,6 +624,7 @@ public class FrmAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;

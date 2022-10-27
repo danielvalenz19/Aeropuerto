@@ -9,6 +9,7 @@ package com.jframe.grafico;
  * @author lucy_
  */
 public class Publico extends javax.swing.JFrame {
+    private String nombre;
 
     /**
      * Creates new form Publico
@@ -236,7 +237,7 @@ public class Publico extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        FrmAnuncio anuncio = new FrmAnuncio();
+        FrmAnuncio anuncio = new FrmAnuncio(nombre);
         anuncio.setVisible(true);
         this.dispose();
 

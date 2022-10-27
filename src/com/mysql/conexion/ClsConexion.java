@@ -26,7 +26,6 @@ public class ClsConexion {
         try {
             Class.forName(DRIVER);
             CN = (Connection) DriverManager.getConnection(URL, USER, PASSWORD);
-            JOptionPane.showMessageDialog(null, "EXITOSOO");
         } catch (ClassNotFoundException | SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "error al conectar con la base de datos", JOptionPane.ERROR_MESSAGE);
             System.exit(0);
